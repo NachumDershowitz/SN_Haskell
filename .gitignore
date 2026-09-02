@@ -1,0 +1,8 @@
+*.hi
+*.o
+*.glob
+*.vo
+*.vos
+*.vok
+.DS_Store
+paper/

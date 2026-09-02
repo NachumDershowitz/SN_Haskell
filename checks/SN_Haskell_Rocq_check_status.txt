@@ -1,0 +1,11 @@
+Rocq status
+===========
+
+The current file is SN_Haskell_Rocq.v.
+It has been updated for Rocq 9-style Stdlib imports and uses Definition star rather than a non-recursive Fixpoint.
+
+Local check command:
+
+    rocq compile SN_Haskell_Rocq.v
+
+The ChatGPT sandbox used for this package does not currently include rocq/coqc, so this file records the intended check command rather than a fresh local proof-check transcript.
