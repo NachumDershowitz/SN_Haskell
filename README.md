@@ -56,6 +56,9 @@ strong-normalization argument. It also includes a mathematical model of the
 pure higher-order fragment used by the main Haskell implementation, with bridge
 lemmas connecting that model to the source-term semantics.
 
+The Coq development is not a verification of GHC, the Haskell runtime, `IO`,
+`seq`, bottoms, or arbitrary Haskell programs.
+
 ## Expected artifact status
 
 A clean checkout should contain the Haskell files, the Coq file, this README,

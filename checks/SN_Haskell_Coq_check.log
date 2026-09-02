@@ -1,0 +1,80 @@
+[
+  'LibProgress',
+  {
+    uri: '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/init.coq-pkg',
+    done: true
+  }
+]
+[
+  'LibProgress',
+  {
+    uri: '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/coq-base.coq-pkg',
+    done: true
+  }
+]
+[
+  'LibProgress',
+  {
+    uri: '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/coq-collections.coq-pkg',
+    done: true
+  }
+]
+[
+  'LibProgress',
+  {
+    uri: '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/coq-arith.coq-pkg',
+    done: true
+  }
+]
+[
+  'LibProgress',
+  {
+    uri: '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/coq-reals.coq-pkg',
+    done: true
+  }
+]
+[
+  'LibProgress',
+  {
+    uri: '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/ltac2.coq-pkg',
+    done: true
+  }
+]
+[
+  'LoadedPkg',
+  [
+    '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/init.coq-pkg',
+    '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/coq-base.coq-pkg',
+    '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/coq-collections.coq-pkg',
+    '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/coq-arith.coq-pkg',
+    '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/coq-reals.coq-pkg',
+    '/mnt/data/jscoq_test/node_modules/jscoq/coq-pkgs/ltac2.coq-pkg'
+  ]
+]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/btauto/btauto_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/cc/cc_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/extraction/extraction_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/firstorder/firstorder_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/funind/funind_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/ltac/ltac_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/ltac/tauto_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/ltac2/ltac2_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/micromega/micromega_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/micromega/zify_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/nsatz/nsatz_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/ring/ring_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/ssr/ssreflect_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/ssrmatching/ssrmatching_plugin.cma"]
+[Debug] ["Register","/mnt/data/jscoq-sdk/Coq/syntax/number_string_notation_plugin.cma"]
+[Debug] ["Init",{"implicit_libs":true,"lib_path":[[[],["/mnt/data/jscoq-sdk","."]],[["Coq"],["/mnt/data/jscoq-sdk/Coq","."]],[["Coq","Arith"],["/mnt/data/jscoq-sdk/Coq/Arith","."]],[["Coq","Array"],["/mnt/data/jscoq-sdk/Coq/Array","."]],[["Coq","Bool"],["/mnt/data/jscoq-sdk/Coq/Bool","."]],[["Coq","Classes"],["/mnt/data/jscoq-sdk/Coq/Classes","."]],[["Coq","FSets"],["/mnt/data/jscoq-sdk/Coq/FSets","."]],[["Coq","Floats"],["/mnt/data/jscoq-sdk/Coq/Floats","."]],[["Coq","Init"],["/mnt/data/jscoq-sdk/Coq/Init","."]],[["Coq","Lists"],["/mnt/data/jscoq-sdk/Coq/Lists","."]],[["Coq","Logic"],["/mnt/data/jscoq-sdk/Coq/Logic","."]],[["Coq","MSets"],["/mnt/data/jscoq-sdk/Coq/MSets","."]],[["Coq","NArith"],["/mnt/data/jscoq-sdk/Coq/NArith","."]],[["Coq","Numbers"],["/mnt/data/jscoq-sdk/Coq/Numbers","."]],[["Coq","Numbers","Cyclic"],["/mnt/data/jscoq-sdk/Coq/Numbers/Cyclic","."]],[["Coq","Numbers","Cyclic","Abstract"],["/mnt/data/jscoq-sdk/Coq/Numbers/Cyclic/Abstract","."]],[["Coq","Numbers","Cyclic","Int31"],["/mnt/data/jscoq-sdk/Coq/Numbers/Cyclic/Int31","."]],[["Coq","Numbers","Cyclic","Int63"],["/mnt/data/jscoq-sdk/Coq/Numbers/Cyclic/Int63","."]],[["Coq","Numbers","Cyclic","ZModulo"],["/mnt/data/jscoq-sdk/Coq/Numbers/Cyclic/ZModulo","."]],[["Coq","Numbers","Integer"],["/mnt/data/jscoq-sdk/Coq/Numbers/Integer","."]],[["Coq","Numbers","Integer","Abstract"],["/mnt/data/jscoq-sdk/Coq/Numbers/Integer/Abstract","."]],[["Coq","Numbers","Integer","Binary"],["/mnt/data/jscoq-sdk/Coq/Numbers/Integer/Binary","."]],[["Coq","Numbers","Integer","NatPairs"],["/mnt/data/jscoq-sdk/Coq/Numbers/Integer/NatPairs","."]],[["Coq","Numbers","NatInt"],["/mnt/data/jscoq-sdk/Coq/Numbers/NatInt","."]],[["Coq","Numbers","Natural"],["/mnt/data/jscoq-sdk/Coq/Numbers/Natural","."]],[["Coq","Numbers","Natural","Abstract"],["/mnt/data/jscoq-sdk/Coq/Numbers/Natural/Abstract","."]],[["Coq","Numbers","Natural","Binary"],["/mnt/data/jscoq-sdk/Coq/Numbers/Natural/Binary","."]],[["Coq","Numbers","Natural","Peano"],["/mnt/data/jscoq-sdk/Coq/Numbers/Natural/Peano","."]],[["Coq","PArith"],["/mnt/data/jscoq-sdk/Coq/PArith","."]],[["Coq","Program"],["/mnt/data/jscoq-sdk/Coq/Program","."]],[["Coq","QArith"],["/mnt/data/jscoq-sdk/Coq/QArith","."]],[["Coq","Reals"],["/mnt/data/jscoq-sdk/Coq/Reals","."]],[["Coq","Reals","Abstract"],["/mnt/data/jscoq-sdk/Coq/Reals/Abstract","."]],[["Coq","Reals","Cauchy"],["/mnt/data/jscoq-sdk/Coq/Reals/Cauchy","."]],[["Coq","Relations"],["/mnt/data/jscoq-sdk/Coq/Relations","."]],[["Coq","Setoids"],["/mnt/data/jscoq-sdk/Coq/Setoids","."]],[["Coq","Sets"],["/mnt/data/jscoq-sdk/Coq/Sets","."]],[["Coq","Sorting"],["/mnt/data/jscoq-sdk/Coq/Sorting","."]],[["Coq","Strings"],["/mnt/data/jscoq-sdk/Coq/Strings","."]],[["Coq","Structures"],["/mnt/data/jscoq-sdk/Coq/Structures","."]],[["Coq","Unicode"],["/mnt/data/jscoq-sdk/Coq/Unicode","."]],[["Coq","Vectors"],["/mnt/data/jscoq-sdk/Coq/Vectors","."]],[["Coq","Wellfounded"],["/mnt/data/jscoq-sdk/Coq/Wellfounded","."]],[["Coq","ZArith"],["/mnt/data/jscoq-sdk/Coq/ZArith","."]],[["Coq","btauto"],["/mnt/data/jscoq-sdk/Coq/btauto","."]],[["Coq","cc"],["/mnt/data/jscoq-sdk/Coq/cc","."]],[["Coq","extraction"],["/mnt/data/jscoq-sdk/Coq/extraction","."]],[["Coq","firstorder"],["/mnt/data/jscoq-sdk/Coq/firstorder","."]],[["Coq","funind"],["/mnt/data/jscoq-sdk/Coq/funind","."]],[["Coq","ltac"],["/mnt/data/jscoq-sdk/Coq/ltac","."]],[["Coq","ltac2"],["/mnt/data/jscoq-sdk/Coq/ltac2","."]],[["Coq","micromega"],["/mnt/data/jscoq-sdk/Coq/micromega","."]],[["Coq","nsatz"],["/mnt/data/jscoq-sdk/Coq/nsatz","."]],[["Coq","omega"],["/mnt/data/jscoq-sdk/Coq/omega","."]],[["Coq","ring"],["/mnt/data/jscoq-sdk/Coq/ring","."]],[["Coq","setoid_ring"],["/mnt/data/jscoq-sdk/Coq/setoid_ring","."]],[["Coq","ssr"],["/mnt/data/jscoq-sdk/Coq/ssr","."]],[["Coq","ssrmatching"],["/mnt/data/jscoq-sdk/Coq/ssrmatching","."]],[["Coq","syntax"],["/mnt/data/jscoq-sdk/Coq/syntax","."]],[["Ltac2"],["/mnt/data/jscoq-sdk/Ltac2","."]]]}]
+[Debug] ["NewDoc",{"lib_init":["Coq.Init.Prelude"]}]
+Processed 1
+Coq worker ready.
+[Debug] ["Add",1,2,"Load \"/mnt/data/SN_Haskell_Coq.v\".",false]
+Processed 1
+------------------------------------------------------------
+[Warning] Not a truly recursive fixpoint. [non-recursive,fixpoints]
+------------------------------------------------------------
+Processed 2
+[Debug] ["Exec",2]
+Processed 2

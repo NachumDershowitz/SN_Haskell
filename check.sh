@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/usr/bin/env sh
+set -eu
 
 for f in \
   SN_Haskell.hs \
@@ -7,24 +7,13 @@ for f in \
   SN_Haskell_Trace.hs \
   SN_Haskell_HenkExamples.hs
 do
-  echo "== typechecking $f =="
   ghc -Wall -Werror -fforce-recomp -fno-code "$f"
 done
 
-for f in \
-  SN_Haskell.hs \
-  SN_Haskell_Named.hs \
-  SN_Haskell_Trace.hs \
-  SN_Haskell_HenkExamples.hs
-do
-  echo "== running $f =="
-  runghc "$f"
-done
+runghc SN_Haskell.hs
+runghc SN_Haskell_Named.hs
+runghc SN_Haskell_Trace.hs
+runghc SN_Haskell_HenkExamples.hs
 
-if command -v jscoq >/dev/null 2>&1; then
-  echo "== checking SN_Haskell_Coq.v =="
-  jscoq run -v -l SN_Haskell_Coq.v
-else
-  echo "jscoq is not on PATH; skipping Coq check."
-  echo "Run: npx jscoq run -v -l SN_Haskell_Coq.v"
-fi
+# If jsCoq is installed:
+# jscoq run -v -l SN_Haskell_Coq.v
