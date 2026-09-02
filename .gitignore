@@ -1,7 +1,0 @@
-.DS_Store
-*.hi
-*.o
-*_build/
-dist-newstyle/
-.stack-work/
-paper/
