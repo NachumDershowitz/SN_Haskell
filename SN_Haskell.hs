@@ -4,6 +4,8 @@
 
 module Main where
 
+import Numeric.Natural (Natural)
+
 -- Object-language types, indexed by Haskell types.
 
 data Base
@@ -15,21 +17,21 @@ data Ty a where
 -- Type-indexed de Vrijer measurements.
 
 data Meas a where
-  N :: Integer -> Meas Base
-  F :: (Meas a -> Meas b) -> Integer -> Meas (a -> b)
+  N :: Natural -> Meas Base
+  F :: (Meas a -> Meas b) -> Natural -> Meas (a -> b)
 
-star :: Meas a -> Integer
+star :: Meas a -> Natural
 star (N n)   = n
 star (F _ n) = n
 
 dot :: Meas (a -> b) -> Meas a -> Meas b
 dot (F f _) a = f a
 
-add :: Integer -> Meas a -> Meas a
+add :: Natural -> Meas a -> Meas a
 add k (N n)   = N (n + k)
 add k (F f n) = F (\a -> add k (f a)) (n + k)
 
-canon :: Ty a -> Integer -> Meas a
+canon :: Ty a -> Natural -> Meas a
 canon TBase n      = N n
 canon (TArr _ b) n = F (\a -> canon b (n + star a)) n
 
@@ -50,7 +52,7 @@ lam ty body =
   F (\a -> add (star a + 1) (body a))
     (star (body (canon ty 0)))
 
-measure :: Term a -> Integer
+measure :: Term a -> Natural
 measure = star
 
 -- Example: (\f^{o -> o}. \x^o. f x) (\x^o. x)

@@ -1,0 +1,13 @@
+Rocq check status
+=================
+
+The file was adjusted for Rocq 9 warning cleanliness after a local run reported
+only warnings:
+
+- `Coq.*` imports were replaced with `Stdlib.*` imports.
+- the non-recursive `Fixpoint star` was changed to `Definition star`.
+
+Rocq is not installed in this ChatGPT container, so this exact revision should
+be checked locally with:
+
+    rocq compile SN_Haskell_Rocq.v

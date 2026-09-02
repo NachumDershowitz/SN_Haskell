@@ -4,6 +4,8 @@
 
 module Main where
 
+import Numeric.Natural (Natural)
+
 -- Checks the examples in Henk Barendregt's note using the simple
 -- higher-order/final implementation.
 
@@ -14,21 +16,21 @@ data Ty a where
   TArr  :: Ty a -> Ty b -> Ty (a -> b)
 
 data Meas a where
-  N :: Integer -> Meas Base
-  F :: (Meas a -> Meas b) -> Integer -> Meas (a -> b)
+  N :: Natural -> Meas Base
+  F :: (Meas a -> Meas b) -> Natural -> Meas (a -> b)
 
-star :: Meas a -> Integer
+star :: Meas a -> Natural
 star (N n)   = n
 star (F _ n) = n
 
 dot :: Meas (a -> b) -> Meas a -> Meas b
 dot (F f _) a = f a
 
-add :: Integer -> Meas a -> Meas a
+add :: Natural -> Meas a -> Meas a
 add k (N n)   = N (n + k)
 add k (F f n) = F (\a -> add k (f a)) (n + k)
 
-canon :: Ty a -> Integer -> Meas a
+canon :: Ty a -> Natural -> Meas a
 canon TBase n      = N n
 canon (TArr _ b) n = F (\a -> canon b (n + star a)) n
 
@@ -42,7 +44,7 @@ lam ty body =
   F (\a -> add (star a + 1) (body a))
     (star (body (canon ty 0)))
 
-measure :: Term a -> Integer
+measure :: Term a -> Natural
 measure = star
 
 base :: Ty Base
@@ -85,10 +87,10 @@ lambdaFxI1 = app lambdaFx i1
 lambdaFxI1y :: Term Base
 lambdaFxI1y = app lambdaFxI1 yFree
 
-samples :: [Integer]
+samples :: [Natural]
 samples = [0, 1, 2, 3, 4]
 
-baseSamples :: Meas (Base -> Base) -> [Integer]
+baseSamples :: Meas (Base -> Base) -> [Natural]
 baseSamples f = [star (dot f (N n)) | n <- samples]
 
 sameBaseFunctionOnSamples :: Meas (Base -> Base) -> Meas (Base -> Base) -> Bool
@@ -100,14 +102,14 @@ check label ok = do
   putStrLn (label ++ if ok then "  OK" else "  FAIL")
   return ok
 
-checkStar :: String -> Term a -> Integer -> IO Bool
+checkStar :: String -> Term a -> Natural -> IO Bool
 checkStar label term expected =
   let actual = measure term
    in check (label ++ ": expected star " ++ show expected ++
              ", got " ++ show actual)
             (actual == expected)
 
-checkBaseFunction :: String -> Term (Base -> Base) -> (Integer -> Integer) -> IO Bool
+checkBaseFunction :: String -> Term (Base -> Base) -> (Natural -> Natural) -> IO Bool
 checkBaseFunction label term expected =
   let actual = baseSamples term
       wanted = [expected n | n <- samples]

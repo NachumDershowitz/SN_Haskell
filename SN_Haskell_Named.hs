@@ -2,6 +2,8 @@
 
 module Main where
 
+import Numeric.Natural (Natural)
+
 import Data.Maybe (fromMaybe)
 
 infixr 5 :->
@@ -43,10 +45,10 @@ typeOf (App m n) = do
 -- De Vrijer measurements.
 
 data Meas
-  = N Integer
-  | F (Meas -> Meas) Integer
+  = N Natural
+  | F (Meas -> Meas) Natural
 
-star :: Meas -> Integer
+star :: Meas -> Natural
 star (N n)   = n
 star (F _ n) = n
 
@@ -54,11 +56,11 @@ dot :: Meas -> Meas -> Meas
 dot (F f _) a = f a
 dot (N _)   _ = error "dot of a base-type measure"
 
-add :: Integer -> Meas -> Meas
+add :: Natural -> Meas -> Meas
 add k (N n)   = N (n + k)
 add k (F f n) = F (\a -> add k (f a)) (n + k)
 
-canon :: Ty -> Integer -> Meas
+canon :: Ty -> Natural -> Meas
 canon O n = N n
 canon (_ :-> b) n = F (\a -> canon b (n + star a)) n
 
@@ -76,10 +78,10 @@ bra env (Lam x m) =
   F (\a -> add (star a + 1) (bra ((x, a) : env) m))
     (star (bra ((x, canon (vty x) 0) : env) m))
 
-measure :: Term -> Integer
+measure :: Term -> Natural
 measure = star . bra []
 
-measureChecked :: Term -> Either String Integer
+measureChecked :: Term -> Either String Natural
 measureChecked m = do
   _ <- typeOf m
   Right (measure m)

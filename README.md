@@ -1,21 +1,19 @@
 # SN_Haskell
 
-Haskell implementations and a Coq formalization of de Vrijer's decreasing
-measure for strong normalization of the simply typed lambda-calculus.
+Haskell implementations and a Rocq formalization of de Vrijer's decreasing measure for strong normalization of the simply typed lambda-calculus.
 
 ## Contents
 
 - `SN_Haskell.hs` — the main higher-order/final Haskell implementation.
-- `SN_Haskell_Named.hs` — a named, environment-passing implementation kept for comparison.
-- `SN_Haskell_Trace.hs` — a small tracer that prints reduction steps and measures.
+- `SN_Haskell_Named.hs` — a named, environment-passing Haskell implementation kept for comparison.
+- `SN_Haskell_Trace.hs` — a trace program that prints reduction steps.
 - `SN_Haskell_HenkExamples.hs` — checks the examples from Henk Barendregt's note.
-- `SN_Haskell_Coq.v` — a Coq formalization of the measure construction and proof.
-- `checks/` — logs from successful Haskell and Coq checks, if included in the checkout.
+- `SN_Haskell_Rocq.v` — a Rocq formalization of the measurement algebra, intrinsically typed de Bruijn syntax, substitution, full contextual beta-reduction, strict decrease, and strong normalization.
+- `checks/` — check logs and status notes.
 
 ## Haskell checks
 
-The Haskell files use only the standard `base` library. With GHC available,
-run:
+With GHC available, run:
 
 ```sh
 for f in \
@@ -33,33 +31,24 @@ runghc SN_Haskell_Trace.hs
 runghc SN_Haskell_HenkExamples.hs
 ```
 
-The first two programs print `2`. The trace program prints the reduction
-traces. The examples checker reports success if all checked examples pass.
+The first two programs print `2`. The trace program prints reduction traces. The examples checker reports success if all checked examples pass.
 
-## Coq check
+## Rocq check
 
-The Coq file was checked with jsCoq using:
-
-```sh
-jscoq run -v -l SN_Haskell_Coq.v
-```
-
-or, with `npx`:
+With Rocq 9:
 
 ```sh
-npx jscoq run -v -l SN_Haskell_Coq.v
+rocq compile SN_Haskell_Rocq.v
 ```
 
-The Coq development formalizes de Vrijer's semantic domains, the decreasing
-measure, typed syntax, substitution, full contextual beta-reduction, and the
-strong-normalization argument. It also includes a mathematical model of the
-pure higher-order fragment used by the main Haskell implementation, with bridge
-lemmas connecting that model to the source-term semantics.
+Some Rocq installations also provide the compatibility command:
 
-The Coq development is not a verification of GHC, the Haskell runtime, `IO`,
-`seq`, bottoms, or arbitrary Haskell programs.
+```sh
+coqc SN_Haskell_Rocq.v
+```
 
-## Expected artifact status
+The Rocq file machine-checks the mathematical decreasing-measure argument in an intrinsically typed de Bruijn representation and uses the same measurement equations implemented by the Haskell programs. The proof makes no unproved assumptions other than the correctness of the standard libraries.
 
-A clean checkout should contain the Haskell files, the Coq file, this README,
-and any optional check logs. It should not require generated build artifacts.
+## Repository note
+
+This repository intentionally contains the code and proof artifacts only, not the paper.

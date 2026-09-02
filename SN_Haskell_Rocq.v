@@ -1,20 +1,20 @@
 (*************************************************************************)
-(*  A Coq formalization of de Vrijer's decreasing measure.                *)
+(*  A Rocq formalization of de Vrijer's decreasing measure.                *)
 (*                                                                       *)
 (*  This is a first-order formal companion to SN_Haskell.hs.  The Haskell *)
 (*  paper uses a higher-order/final representation for compact executable *)
 (*  code.  Here we use intrinsically typed de Bruijn syntax, because that  *)
 (*  is the convenient representation for a proof assistant: substitution  *)
 (*  and contextual beta-reduction are explicit and machine-checked.  The  *)
-(*  development imports Coq's standard functional extensionality library  *)
+(*  development imports Rocq's standard functional extensionality library  *)
 (*  for equality of semantic functions.                                  *)
 (*************************************************************************)
 
-Require Import Coq.Arith.PeanoNat.
-Require Import Coq.Arith.Wf_nat.
-Require Import Coq.Lists.List.
-Require Import Coq.Logic.FunctionalExtensionality.
-Require Import Coq.Program.Equality.
+From Stdlib Require Import Arith.PeanoNat.
+From Stdlib Require Import Arith.Wf_nat.
+From Stdlib Require Import Lists.List.
+From Stdlib Require Import Logic.FunctionalExtensionality.
+From Stdlib Require Import Program.Equality.
 
 Import ListNotations.
 Set Implicit Arguments.
@@ -35,7 +35,7 @@ Fixpoint den (t : ty) : Type :=
   | arr s u => (den s -> den u) * nat
   end.
 
-Fixpoint star (t : ty) : den t -> nat :=
+Definition star (t : ty) : den t -> nat :=
   match t return den t -> nat with
   | base => fun n => n
   | arr _ _ => fun p => snd p

@@ -1,21 +1,19 @@
-GHC used: The Glorious Glasgow Haskell Compilation System, version 9.14.1
-
-== compiling SN_Haskell.hs ==
-[1 of 2] Compiling Main             ( SN_Haskell.hs, SN_Haskell_build/Main.o )
-[2 of 2] Linking SN_Haskell_build/SN_Haskell
-== running SN_Haskell ==
+Wed Sep  2 15:51:02 UTC 2026
+The Glorious Glasgow Haskell Compilation System, version 9.14.1
+runghc 9.14.1
+== ghc -Wall -Werror -fforce-recomp -fno-code SN_Haskell.hs ==
+[1 of 1] Compiling Main             ( /mnt/data/SN_Haskell.hs, nothing )
+== ghc -Wall -Werror -fforce-recomp -fno-code SN_Haskell_Named.hs ==
+[1 of 1] Compiling Main             ( /mnt/data/SN_Haskell_Named.hs, nothing )
+== ghc -Wall -Werror -fforce-recomp -fno-code SN_Haskell_Trace.hs ==
+[1 of 1] Compiling Main             ( /mnt/data/SN_Haskell_Trace.hs, nothing )
+== ghc -Wall -Werror -fforce-recomp -fno-code SN_Haskell_HenkExamples.hs ==
+[1 of 1] Compiling Main             ( /mnt/data/SN_Haskell_HenkExamples.hs, nothing )
+== runghc SN_Haskell.hs ==
 2
-
-== compiling SN_Haskell_Named.hs ==
-[1 of 2] Compiling Main             ( SN_Haskell_Named.hs, SN_Haskell_build/Main.o )
-[2 of 2] Linking SN_Haskell_build/SN_Haskell_Named
-== running SN_Haskell_Named ==
+== runghc SN_Haskell_Named.hs ==
 2
-
-== compiling SN_Haskell_Trace.hs ==
-[1 of 2] Compiling Main             ( SN_Haskell_Trace.hs, SN_Haskell_build/Main.o )
-[2 of 2] Linking SN_Haskell_build/SN_Haskell_Trace
-== running SN_Haskell_Trace ==
+== runghc SN_Haskell_Trace.hs ==
 Full leftmost-outermost beta-reduction:
 0. (\f:(o -> o). \x0:o. f x0) (\x1:o. x1)    measure = 2
 1. \x0:o. (\x1:o. x1) x0    measure = 1
@@ -24,11 +22,7 @@ Full leftmost-outermost beta-reduction:
 Weak call-by-name evaluation:
 0. (\f:(o -> o). \x0:o. f x0) (\x1:o. x1)    measure = 2
 1. \x0:o. (\x1:o. x1) x0    measure = 1
-
-== compiling SN_Haskell_HenkExamples.hs ==
-[1 of 2] Compiling Main             ( SN_Haskell_HenkExamples.hs, SN_Haskell_build/Main.o )
-[2 of 2] Linking SN_Haskell_build/SN_Haskell_HenkExamples
-== running SN_Haskell_HenkExamples ==
+== runghc SN_Haskell_HenkExamples.hs ==
 I_1: expected star 0, got 0  OK
 I_1 dot part: 2n+1: expected samples [1,3,5,7,9], got [1,3,5,7,9]  OK
 I_1 x^o: expected star 1, got 1  OK
