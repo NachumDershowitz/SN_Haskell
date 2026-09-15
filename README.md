@@ -9,7 +9,19 @@ Haskell implementations and a Rocq formalization of de Vrijer's decreasing measu
 - `SN_Haskell_Trace.hs` - a trace program that prints reduction steps.
 - `SN_Haskell_HenkExamples.hs` - checks the examples from Henk Barendregt's note.
 - `SN_Haskell_Rocq.v` - a Rocq formalization of the measurement algebra, intrinsically typed de Bruijn syntax, substitution, full contextual beta-reduction, strict decrease, and strong normalization.
+- `check.sh` - combined Haskell checks, Rocq compilation, and a report of theorem assumptions.
+- `MANIFEST.sha256` - SHA-256 checksums of the repository source and metadata files.
 - `checks/` - check logs and status notes.
+
+## Combined check
+
+With GHC, `runghc`, and Rocq on PATH, run:
+
+```sh
+bash check.sh
+```
+
+This typechecks and runs all four Haskell programs, compiles the Rocq proof, and prints the assumptions of the principal theorems. The script uses a temporary directory and exits with an error if a required tool is missing or a check fails. The files in `checks/` record earlier runs and status notes; the script does not update them.
 
 ## Haskell checks
 
@@ -31,7 +43,7 @@ runghc SN_Haskell_Trace.hs
 runghc SN_Haskell_HenkExamples.hs
 ```
 
-The first two programs print `2`. The trace program prints reduction traces. The examples checker reports success if all checked examples pass.
+The first two programs print `2`. The trace program prints reduction traces. The examples checker reports success if all checked examples pass. It contains its own measurement implementation and compares function values at inputs 0 through 4.
 
 ## Rocq check
 
@@ -47,7 +59,7 @@ Some Rocq installations also provide the compatibility command:
 coqc SN_Haskell_Rocq.v
 ```
 
-The Rocq file machine-checks the mathematical decreasing-measure argument in an intrinsically typed de Bruijn representation and uses the same measurement equations implemented by the Haskell programs. The proof makes no unproved assumptions other than the correctness of the standard libraries.
+The Rocq file machine-checks the mathematical decreasing-measure argument in an intrinsically typed de Bruijn representation and uses the same measurement equations implemented by the Haskell programs. Every proof in the source is completed. The development uses functional extensionality from Rocq's standard library; `bash check.sh` reports the assumptions of the principal theorems.
 
 ## Repository note
 
