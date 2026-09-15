@@ -6,3 +6,4 @@
 *.vok
 .DS_Store
 paper/
+.*.aux
